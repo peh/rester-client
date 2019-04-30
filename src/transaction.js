@@ -168,10 +168,10 @@ class RequestFormatter extends MessageFormatter {
     }
     headerLines(request) {
         let headerLines = '';
-        let keys = Object.keys(request._headerNames);
+        let keys = Object.keys(request._headers);
         keys.forEach(key => {
-            let name = request._headerNames[key];
-            let value = request._headers[key];
+            let name = request._headers[key].name;
+            let value = request._headers[key].value;
             headerLines += `${name}: ${value}\r\n`;
         });
         return headerLines;
